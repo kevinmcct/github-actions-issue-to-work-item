@@ -639,6 +639,7 @@ function getValuesFromPayload(payload, env) {
 		comment_url: "",
 		organization: "",
 		repository: "",
+		iteration: "",
 		env: {
 			organization: env.ado_organization != undefined ? env.ado_organization : "",
 			orgUrl: env.ado_organization != undefined ? "https://dev.azure.com/" + env.ado_organization : "",
