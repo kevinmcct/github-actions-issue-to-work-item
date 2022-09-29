@@ -647,7 +647,7 @@ function getValuesFromPayload(payload, env) {
 			ghToken: env.github_token != undefined ? env.github_token : "",
 			project: env.ado_project != undefined ? env.ado_project : "",
 			areaPath: env.ado_area_path != undefined ? env.ado_area_path : "",
-			iterationPath: env.ado_iteration_path != undefined ? env.ado_iteration_path : "",
+			iterationPath: env.ado_iteration != undefined ? env.ado_iteration_path : "",
 			wit: env.ado_wit != undefined ? env.ado_wit : "Issue",
 			closedState: env.ado_close_state != undefined ? env.ado_close_state : "Closed",
 			newState: env.ado_new_state != undefined ? env.ado_new_state : "New",
