@@ -654,6 +654,7 @@ function getValuesFromPayload(payload, env) {
 			activeState: env.ado_active_state != undefined ? env.ado_active_state : "Active",
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false,
 			parent: env.ado_parent != undefined ? env.ado_parent : "",
+			sprint: env.ado_sprint != undefined ? env.ado_sprint : ""
       logLevel: env.log_level != undefined ? env.log_level : 100
 		}
 	};
