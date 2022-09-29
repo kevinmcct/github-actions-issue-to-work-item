@@ -207,7 +207,7 @@ async function create(vm) {
   }
 
   // if iteration path is not empty, set it
-  if (vm.env.iterationPath != "") {
+  if (vm.env.ado_iteration_path != "") {
     patchDocument.push({
       op: "add",
       path: "/fields/System.IterationPath",
