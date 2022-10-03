@@ -207,7 +207,7 @@ async function create(vm) {
   }
 
   // if iteration path is not empty, set it
-  if (vm.ado_iteration != "") {
+  if (vm.env.ado_iteration != "") {
     patchDocument.push({
       op: "add",
       path: "/fields/System.IterationPath",
@@ -216,12 +216,12 @@ async function create(vm) {
   }
 	
 	// if story_points path is not empty, set it
-  if (vm.ado_story_points != "") {
-		patchDocument.push({
-			op: "add",
-			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
-			value: vm.ado_story_points
-		 });
+  if (vm.env.ado_story_points != "") {
+	patchDocument.push({
+		op: "add",
+		path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
+		value: vm.ado_story_points
+	 });
   }
 
   // if the bypassrules are on, then use the issue.sender.user.name value for the person
