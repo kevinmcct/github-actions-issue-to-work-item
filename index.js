@@ -310,7 +310,7 @@ async function update(vm, workItem) {
       value: {
         rel: "System.LinkTypes.Hierarchy-Reverse",
         url: "https://dev.azure.com/" + vm.env.organization + "/" + vm.env.project + "/_apis/wit/workItems/" + vm.env.ado_parent
-			}
+	}
     });
   }
 	// if area path is not empty, set it
@@ -330,6 +330,15 @@ async function update(vm, workItem) {
       value: vm.env.ado_iteration
     });
   }
+	
+	// if points is not empty, set it
+	if (vm.env.ado_story_points != "") {
+		patchDocument.push({
+			op: "add",
+			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
+			value: vm.env.ado_story_points
+		 });
+	}
 
   // verbose logging
   if (vm.env.logLevel >= 300) {
@@ -675,6 +684,7 @@ function getValuesFromPayload(payload, env) {
 			project: env.ado_project != undefined ? env.ado_project : "",
 			ado_areaPath: env.ado_area_path != undefined ? env.ado_area_path : "",
 			ado_iteration: env.ado_iteration != undefined ? env.ado_iteration : "",
+			ado_story_points: env.ado_story_points != undefined ? env.ado_story_points: "",
 			wit: env.ado_wit != undefined ? env.ado_wit : "Issue",
 			closedState: env.ado_close_state != undefined ? env.ado_close_state : "Closed",
 			newState: env.ado_new_state != undefined ? env.ado_new_state : "New",
