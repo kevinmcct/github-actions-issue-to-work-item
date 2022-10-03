@@ -211,7 +211,7 @@ async function create(vm) {
     patchDocument.push({
       op: "add",
       path: "/fields/System.IterationPath",
-      value: vm.env.iteration
+      value: vm.env.ado_iteration
     });
   }
 
