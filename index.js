@@ -336,7 +336,7 @@ async function update(vm, workItem) {
     patchDocument.push({
       op: "add",
       path: "/fields/System.IterationPath",
-      value: vm.env.ado_iteration
+      value: vm.ado_iteration
     });
   }
 	
@@ -345,7 +345,7 @@ async function update(vm, workItem) {
 		patchDocument.push({
 			op: "add",
 			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
-			value: vm.env.ado_story_points
+			value: vm.ado_story_points
 		 });
 	}
 
@@ -680,8 +680,6 @@ function getValuesFromPayload(payload, env) {
 		closed_at: payload.issue.closed_at != undefined ? payload.issue.closed_at : null,
 		owner: payload.repository.owner != undefined ? payload.repository.owner.login : "",
 		sender_login: payload.sender.login != undefined ? payload.sender.login : '',
-	  ado_iteration: payload.ado_iteration != undefined ? payload.ado_iteration : "",
-	  ado_story_points: payload.ado_story_points != undefined ? payload.ado_story_points: "",
 		label: "",
 		comment_text: "",
 		comment_url: "",
@@ -700,7 +698,9 @@ function getValuesFromPayload(payload, env) {
 			activeState: env.ado_active_state != undefined ? env.ado_active_state : "Active",
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false,
 			ado_parent: env.ado_parent != undefined ? env.ado_parent : "",
-      			logLevel: env.log_level != undefined ? env.log_level : 100
+			ado_iteration: env.ado_iteration != undefined ? payload.ado_iteration : "",
+	  	ado_story_points: env.ado_story_points != undefined ? payload.ado_story_points: "",
+      logLevel: env.log_level != undefined ? env.log_level : 100
 		}
 	};
 
