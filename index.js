@@ -207,12 +207,21 @@ async function create(vm) {
   }
 
   // if iteration path is not empty, set it
-  if (vm.env.ado_iteration != "") {
+  if (vm.ado_iteration != "") {
     patchDocument.push({
       op: "add",
       path: "/fields/System.IterationPath",
       value: vm.env.ado_iteration
     });
+  }
+	
+	// if story_points path is not empty, set it
+  if (vm.ado_story_points != "") {
+		patchDocument.push({
+			op: "add",
+			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
+			value: vm.env.ado_story_points
+		 });
   }
 
   // if the bypassrules are on, then use the issue.sender.user.name value for the person
@@ -671,8 +680,8 @@ function getValuesFromPayload(payload, env) {
 		closed_at: payload.issue.closed_at != undefined ? payload.issue.closed_at : null,
 		owner: payload.repository.owner != undefined ? payload.repository.owner.login : "",
 		sender_login: payload.sender.login != undefined ? payload.sender.login : '',
-	  	ado_iteration: payload.ado_iteration != undefined ? payload.ado_iteration : "",
-	  	ado_story_points: payload.ado_story_points != undefined ? payload.ado_story_points: "",
+	  ado_iteration: payload.ado_iteration != undefined ? payload.ado_iteration : "",
+	  ado_story_points: payload.ado_story_points != undefined ? payload.ado_story_points: "",
 		label: "",
 		comment_text: "",
 		comment_url: "",
