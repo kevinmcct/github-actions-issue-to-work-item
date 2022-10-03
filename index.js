@@ -196,7 +196,7 @@ async function create(vm) {
         url: "https://dev.azure.com/" + vm.env.organization + "/" + vm.env.project + "/_apis/wit/workItems/" + vm.env.ado_parent
 			}
     });
-	}
+  }
   // if area path is not empty, set it
   if (vm.env.ado_areaPath != "") {
     patchDocument.push({
@@ -301,6 +301,34 @@ async function update(vm, workItem) {
         value: html,
       }
     );
+  }
+	// if ado_parent is not empty, set it
+	if (vm.env.ado_parent != "") {
+    patchDocument.push({
+			op: "add",
+      path: "/relations/-",
+      value: {
+        rel: "System.LinkTypes.Hierarchy-Reverse",
+        url: "https://dev.azure.com/" + vm.env.organization + "/" + vm.env.project + "/_apis/wit/workItems/" + vm.env.ado_parent
+			}
+    });
+  }
+	// if area path is not empty, set it
+  if (vm.env.ado_areaPath != "") {
+    patchDocument.push({
+      op: "add",
+      path: "/fields/System.AreaPath",
+      value: vm.env.ado_areaPath
+    });
+  }
+
+  // if iteration path is not empty, set it
+  if (vm.env.ado_iteration != "") {
+    patchDocument.push({
+      op: "add",
+      path: "/fields/System.IterationPath",
+      value: vm.env.ado_iteration
+    });
   }
 
   // verbose logging
