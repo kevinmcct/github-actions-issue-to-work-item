@@ -345,6 +345,7 @@ async function update(vm, workItem) {
 			patchDocument.push({
 				op: "add",
 				path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
+				type: "double",
 				value: vm.env.ado_story_points
 			 });
 		}
