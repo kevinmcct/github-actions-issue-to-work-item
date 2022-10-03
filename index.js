@@ -211,7 +211,7 @@ async function create(vm) {
     patchDocument.push({
       op: "add",
       path: "/fields/System.IterationPath",
-      value: vm.env.ado_iteration
+      value: vm.ado_iteration
     });
   }
 	
@@ -220,7 +220,7 @@ async function create(vm) {
 		patchDocument.push({
 			op: "add",
 			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
-			value: vm.env.ado_story_points
+			value: vm.ado_story_points
 		 });
   }
 
