@@ -639,7 +639,6 @@ function getValuesFromPayload(payload, env) {
 		comment_url: "",
 		organization: "",
 		repository: "",
-		iteration: "",
 		env: {
 			organization: env.ado_organization != undefined ? env.ado_organization : "",
 			orgUrl: env.ado_organization != undefined ? "https://dev.azure.com/" + env.ado_organization : "",
@@ -647,7 +646,7 @@ function getValuesFromPayload(payload, env) {
 			ghToken: env.github_token != undefined ? env.github_token : "",
 			project: env.ado_project != undefined ? env.ado_project : "",
 			areaPath: env.ado_area_path != undefined ? env.ado_area_path : "",
-			iterationPath: env.ado_iteration != undefined ? env.ado_iteration_path : "",
+			iteration: env.ado_iteration != undefined ? env.ado_iteration_path : "",
 			wit: env.ado_wit != undefined ? env.ado_wit : "Issue",
 			closedState: env.ado_close_state != undefined ? env.ado_close_state : "Closed",
 			newState: env.ado_new_state != undefined ? env.ado_new_state : "New",
@@ -655,7 +654,7 @@ function getValuesFromPayload(payload, env) {
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false,
 			parent: env.ado_parent != undefined ? env.ado_parent : "",
 			sprint: env.ado_sprint != undefined ? env.ado_sprint : "",
-      logLevel: env.log_level != undefined ? env.log_level : 100
+      			logLevel: env.log_level != undefined ? env.log_level : 100
 		}
 	};
 
