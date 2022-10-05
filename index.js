@@ -341,14 +341,14 @@ async function update(vm, workItem) {
   }
 	
 	// if points is not empty, set it
-		if (vm.env.ado_story_points != "") {
-			patchDocument.push({
-				op: "add",
-				path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
-				type: "double",
-				value: vm.env.ado_story_points
-			 });
-		}
+	if (vm.env.ado_story_points != "") {
+		patchDocument.push({
+			op: "add",
+			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
+			# type: "double",
+			value: vm.env.ado_story_points
+		 });
+	}
 
   // verbose logging
   if (vm.env.logLevel >= 300) {
