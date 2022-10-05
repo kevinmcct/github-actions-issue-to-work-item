@@ -311,15 +311,15 @@ async function update(vm, workItem) {
       }
     );
   }
-	// if ado_parent is not empty, set it
-	if (vm.env.ado_parent != "") {
+  // if ado_parent is not empty, set it
+  if (vm.env.ado_parent != "") {
     patchDocument.push({
-			op: "add",
+      op: "add",
       path: "/relations/-",
       value: {
         rel: "System.LinkTypes.Hierarchy-Reverse",
         url: "https://dev.azure.com/" + vm.env.organization + "/" + vm.env.project + "/_apis/wit/workItems/" + vm.env.ado_parent
-	}
+	    }
     });
   }
 	// if area path is not empty, set it
@@ -340,15 +340,15 @@ async function update(vm, workItem) {
     });
   }
 	
-	// if points is not empty, set it
-	if (vm.env.ado_story_points != "") {
-		patchDocument.push({
-			op: "add",
-			path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
-			# type: "double",
-			value: vm.env.ado_story_points
-		 });
-	}
+  // if points is not empty, set it
+  if (vm.env.ado_story_points != "") {
+    patchDocument.push({
+      op: "add",
+      path: "/fields/Microsoft.VSTS.Scheduling.StoryPoints",
+      type: "double",
+      value: vm.env.ado_story_points
+    });
+  }
 
   // verbose logging
   if (vm.env.logLevel >= 300) {
