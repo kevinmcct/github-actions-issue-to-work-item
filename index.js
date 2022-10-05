@@ -340,7 +340,7 @@ async function update(vm, workItem) {
     });
   }
 	
-  // if points is not empty, set it
+  // if story_points is not empty, set it
   if (vm.env.ado_story_points != "") {
     patchDocument.push({
       op: "add",
